@@ -26,12 +26,12 @@ public class PlayerMove : MonoBehaviour
 
 		Vector3 direction = new Vector3(horizontal, vertical, 0 ).normalized;
 
-		if (direction.magnitude >= 0.1f)
-		{
+		//if (direction.magnitude >= 0.1f)
+		//{
 	
 
 			characterController.Move(direction * playerSpeed * Time.deltaTime);
-		}
+		//}
 
 		if (Input.GetButtonDown("Fire1"))
 		{

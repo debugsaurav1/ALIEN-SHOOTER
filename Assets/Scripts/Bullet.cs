@@ -5,8 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-	public float bulletSpeed = 2f; // units per second
-	public float destroyTime = 5f;
+	public float bulletSpeed = 2f; 
+	public float destroyTime = 2.5f;
 	public int damageAmount = 10;
 	private void Start()
 	{

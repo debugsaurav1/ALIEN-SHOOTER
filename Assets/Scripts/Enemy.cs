@@ -8,13 +8,13 @@ public class Enemy : MonoBehaviour
 {
 	public float enemySpeed = 2f;
 	public GameObject enemyPrefab; // the prefab to use for the new enemy
-	public int maxHealth = 100;
-	private int currentHealth;
+	//public int maxHealth = 100;
+	//private int currentHealth;
 
 	// Start is called before the first frame update
 	void Start()
     {
-		currentHealth = maxHealth;
+		//currentHealth = maxHealth;
 	}
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 	{
 		if (collision.collider == null)
 		{
-			Debug.Log("" + collision);
+			Debug.Log("Collide" + collision);
 		}
 		Destroy(gameObject);
 	}
