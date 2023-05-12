@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
 	public GameObject bulletPrefab;
 	public Transform firePoint;
 
+	//public HitCounter hitCounter;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -20,23 +21,30 @@ public class PlayerMove : MonoBehaviour
 
 	void Update()
 	{
-	   
+
 		float vertical = Input.GetAxis("Vertical");
 		float horizontal = Input.GetAxis("Horizontal");
 
-		Vector3 direction = new Vector3(horizontal, vertical, 0 ).normalized;
-
-		//if (direction.magnitude >= 0.1f)
-		//{
-	
-
-			characterController.Move(direction * playerSpeed * Time.deltaTime);
-		//}
-
-		if (Input.GetButtonDown("Fire1"))
+		Vector3 direction = new Vector3(horizontal, vertical, 0).normalized;
+		characterController.Move(direction * playerSpeed * Time.deltaTime);
+		int bulletCounter = BulletCounter();
+		if (Input.GetButtonDown("Fire1") && bulletCounter < 20)
 		{
 			GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-			Debug.Log("Fire1 pressed");
 		}
 	}
+	private int BulletCounter()
+	{
+		GameObject[] allObjects = GameObject.FindGameObjectsWithTag("bullet");
+		int count = allObjects.Length;
+		return count;
+	}
+	void OnBulletHit(int count) 
+	{
+		int score = count;
+		//BroadcastMessage("MyMessage", count, SendMessageOptions.RequireReceiver);
+		print("Counter from PlayerMove" + score);
+	}
+
+
 }

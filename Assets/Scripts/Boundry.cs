@@ -5,9 +5,9 @@ using UnityEngine;
 public class Boundry : MonoBehaviour
 {
 	public Camera MainCamera;
-	private Vector3 screenBounds;
-	private float objectWidth;
-	private float objectHeight;
+	public Vector3 screenBounds;
+	public float objectWidth;
+	public float objectHeight;
 	private Renderer objectRenderer;
 
 	// Use this for initialization

@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-	public float bulletSpeed = 2f; 
+	public static Bullet instance;
+	public float bulletSpeed = 2f;
 	public float destroyTime = 2.5f;
 	public int damageAmount = 10;
+	public GameObject explosion;
+	private int hitCount = 0;
+	
+
+	private void Awake()
+	{
+		instance = this;
+	}
+
 	private void Start()
 	{
 		Destroy(gameObject, destroyTime);
 	}
-	void Update()
+
+	private void Update()
 	{
 		float distance = bulletSpeed * Time.deltaTime; // distance to move this frame
 		Vector3 movement = new Vector3(distance, 0f, 0f); // movement vector
@@ -21,27 +29,25 @@ public class Bullet : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (collision.collider == null) 
+		if (collision.gameObject.CompareTag("destroyer"))
 		{
-			Debug.Log("" + collision);
-		}
-		Destroy (gameObject);		
-	}
-	/*private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Enemy"))
-		{
-			// get the enemy's health script
-			Enemy enemyHealth = other.GetComponent<Enemy>();
-
-			// apply damage to the enemy's health
-			if (enemyHealth != null)
-			{
-				enemyHealth.TakeDamage(damageAmount);
-			}
-
-			// destroy the bullet object
 			Destroy(gameObject);
 		}
-	}*/
+
+		if (collision.gameObject.CompareTag("Astroid"))
+		{
+			Destroy(gameObject); // Destroy the bullet
+			Destroy(collision.gameObject); // destroy the asteroid
+			GetHitCount();
+			Instantiate(explosion, transform.position, Quaternion.identity);
+		}
+	}
+
+
+	public int GetHitCount()
+	{
+		hitCount++;
+		UIManager.instance.UpdateScoreText(hitCount);
+		return hitCount;
+	}
 }

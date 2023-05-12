@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5955686624313397305}
   m_Layer: 0
   m_Name: Astroid
-  m_TagString: Untagged
+  m_TagString: Astroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3262803a20ee947b270870f261792b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 2412703072796047263, guid: c34b83bbf97bf1f44ab38dd83a368ecd, type: 3}
 --- !u!54 &5955686624313397306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -62,8 +63,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 8
+  m_CollisionDetection: 1
 --- !u!135 &5955686624313397305
 SphereCollider:
   m_ObjectHideFlags: 0
