@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
 
 	private void Start()
 	{
-		scoreText.text = score.ToString();
+		scoreText.text = "Score : " + score.ToString();
 		
 	}
 
@@ -24,6 +24,6 @@ public class UIManager : MonoBehaviour
 	public void UpdateScoreText( int hitCount)
 	{
 		score += hitCount;
-		scoreText.text = score.ToString();
+		scoreText.text = "Score : " +score.ToString();
 	}
 }
