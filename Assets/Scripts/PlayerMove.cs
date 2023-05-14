@@ -30,12 +30,13 @@ public class PlayerMove : MonoBehaviour
 	void Update()
 	{
 		healthUpdate();
+		shoot();
 		float vertical = Input.GetAxis("Vertical");
 		float horizontal = Input.GetAxis("Horizontal");
 
 		Vector3 direction = new Vector3(horizontal, vertical, 0).normalized;
 		characterController.Move(direction * playerSpeed * Time.deltaTime);
-		shoot();
+		
 	}
 
 	private void healthUpdate()

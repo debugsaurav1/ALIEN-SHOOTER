@@ -8,6 +8,7 @@ public class Boundry : MonoBehaviour
 	public Vector3 screenBounds;
 	public float objectWidth;
 	public float objectHeight;
+	public float clampingVariable;
 	private Renderer objectRenderer;
 
 	// Use this for initialization
@@ -24,7 +25,7 @@ public class Boundry : MonoBehaviour
 	{
 		Vector3 viewPos = transform.position;
 		viewPos.x = Mathf.Clamp(viewPos.x, -screenBounds.x + objectWidth, screenBounds.x - objectWidth);
-		viewPos.y = Mathf.Clamp(viewPos.y, -screenBounds.y + objectHeight, screenBounds.y - objectHeight);
+		viewPos.y = Mathf.Clamp(viewPos.y, -screenBounds.y + objectHeight, screenBounds.y - objectHeight - clampingVariable);
 		transform.position = viewPos;
 	}
 }

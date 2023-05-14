@@ -27,7 +27,7 @@ public class Astroid_move : MonoBehaviour
            // Debug.Log(explosionEffect);
             Instantiate(explosionEffect.gameObject, gameObject.transform.position, gameObject.transform.rotation);
             //explosionEffect.Play();
-            print("Hit the player");
+            //print("Hit the player");
 			PlayerMove.healthValue -= 1;
 			//Destroy(collidedwith.gameObject);
 			Destroy(gameObject);
