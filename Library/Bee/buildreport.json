@@ -1,0 +1,19 @@
+{
+"instructions_readme": "1) Open Chrome, 2) go to chrome://tracing, 3) click Load, 4) navigate to this file.",
+
+"traceEvents":[
+{ "pid": "Unity", "ph":"M", "name": "process_name", "args": {"name": "Unity"} },
+{ "pid": "Unity", "ph":"M", "name": "process_sort_index", "args": {"sort_index": -100} },
+{ "pid": "Unity", "tid": 1, "ph":"M", "name": "thread_name", "args": {"name": ""} },
+{ "pid": "Unity", "tid": 1,"ts": 175368917243.8,"dur": 4815007, "ph":"X", "name": "Build player"},
+{ "pid": "Unity", "tid": 1,"ts": 175368935986.3,"dur": 237986.3, "ph":"X", "name": "Preprocess Player"},
+{}
+
+],
+"meta_datetime": "06/21/2023 09:56:49",
+"meta_command_line": "\"C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.6f1\\Editor\\Unity.exe\" -projectpath \"D:\\Github-repo\\My project\\ALIEN-SHOOTER\" -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-M2Strnl1Cf9TtKHXca49W -hubSessionId e132a17a-9451-42bf-95eb-728a10061e7f -accessToken khCwBKkRCG9Jsf3Uy8N_sgCojHu_LVm-tPC4NcVR1iY011f",
+"meta_command_line_args": "C:\\Program Files\\Unity\\Hub\\Editor\\2021.3.6f1\\Editor\\Unity.exe -projectpath D:\\Github-repo\\My project\\ALIEN-SHOOTER -useHub -hubIPC -cloudEnvironment production -licensingIpc LicenseClient-M2Strnl1Cf9TtKHXca49W -hubSessionId e132a17a-9451-42bf-95eb-728a10061e7f -accessToken khCwBKkRCG9Jsf3Uy8N_sgCojHu_LVm-tPC4NcVR1iY011f",
+"meta_user_name": "Administrator",
+"meta_os_version": "Microsoft Windows NT 10.0.19045.0",
+"meta_cpu_count": "12"
+}

@@ -1,1 +1,1 @@
-powerup = moves the powerup cube ie moves it forward
+PowerUp.cs = moves the Health Cube prefab  ie moves it forward

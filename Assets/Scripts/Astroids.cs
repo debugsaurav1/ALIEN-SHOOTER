@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Astroids : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed = 65.0f;
+	
+	//private readonly float rotationSpeed = randomFloat;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+		
+	}
 
     // Update is called once per frame
     void Update()
     {
-		transform.RotateAround(transform.position, transform.up, (float)Space.Self * Time.deltaTime * rotationSpeed);
+		float randomSpeed = Random.Range(65.0f, 150.0f);
+		transform.RotateAround(transform.position, transform.up, (float)Space.Self * Time.deltaTime * randomSpeed);
 	}
 
 }

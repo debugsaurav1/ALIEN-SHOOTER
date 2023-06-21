@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovePowerupPoint : MonoBehaviour
 {
-	public GameObject powerup;
+	public GameObject[] powerup;
 	public Transform spawnPoint;
 	int direction = -1;
 	float speed = 0.005f;
@@ -37,9 +37,11 @@ public class MovePowerupPoint : MonoBehaviour
 	{
 		int count = powerupCounter();
 		timer += Time.deltaTime;
+
+		GameObject selectedPowerup = powerup[Random.Range(0, powerup.Length)];
 		if (timer > 12.0f && count <= 1)
 		{
-			Instantiate(powerup, spawnPoint.position, Quaternion.identity);
+			Instantiate(selectedPowerup, spawnPoint.position, Quaternion.identity);
 			timer = 0f;
 		}
 	}

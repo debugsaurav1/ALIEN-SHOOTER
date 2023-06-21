@@ -4,6 +4,7 @@ public class MoveSpawnPoint : MonoBehaviour
 {
     public GameObject  asteroid;
     public Transform spawnPoint;
+	public Boundry boundary;
 	int direction = -1;
 	float speed = 0.005f;
     float timer = 0f;
@@ -12,14 +13,24 @@ public class MoveSpawnPoint : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-	    count = 0;
+        
+		if (!boundary)
+		{
+			boundary = Camera.main.GetComponent<Boundry>();
+		}
+		count = 0;
+		//Vector3 newPosition = transform.position;
+		//newPosition.x = boundary.rightEdgeValue;
+  //     // newPosition.y = boundary.topEdgeValue;
+		//transform.position = newPosition;
 	}
 
     // Update is called once per frame
     void Update()
     {
-      
-        transform.Translate(0, direction * speed, 0);
+		
+
+		transform.Translate(0, direction * speed, 0);
 
         if (transform.position.y <=-4.0f)
         {
@@ -30,12 +41,15 @@ public class MoveSpawnPoint : MonoBehaviour
             direction = -1;
         }
         InstanciateAstroid();
+		//setToEdge();
+
 	}
-    private void InstanciateAstroid()
+	private void InstanciateAstroid()
     {
-        int count = asteroidCounter();
+		//float randomFloat = Random.Range(0.0f, 5.0f);
+		int count = asteroidCounter();
         timer += Time.deltaTime;
-        if (timer > 2.0f && count <= 15)
+        if (timer > 3.0f && count <= 35)
         {
             Instantiate(asteroid, spawnPoint.position, Quaternion.identity);
             timer = 0f;
@@ -48,4 +62,16 @@ public class MoveSpawnPoint : MonoBehaviour
        count = astroidCount.Length;  
        return count;
     }
+	//void setToEdge()
+	//{
+	//	if (!spawnPoint)
+	//	{
+	//		Debug.Log("Spawn point not set");
+	//		return;
+	//	}
+ //       Debug.Log(boundary.topedgeValue());
+	//	Vector3 newPosition = spawnPoint.position;
+	//	newPosition.x = boundary.topedgeValue();
+	//	spawnPoint.position = newPosition;
+	//}
 }

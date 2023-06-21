@@ -5,12 +5,14 @@ using UnityEngine;
 public class Boundry : MonoBehaviour
 {
 	public Camera MainCamera;
-	public Vector3 screenBounds;
-	public float objectWidth;
-	public float objectHeight;
+	private Vector3 screenBounds;
+	private float objectWidth;
+	private float objectHeight;
 	public float clampingVariable;
 	private Renderer objectRenderer;
 
+	//public float rightEdgeValue;
+	//public float topEdgeValue;
 	// Use this for initialization
 	void Start()
 	{
@@ -27,5 +29,18 @@ public class Boundry : MonoBehaviour
 		viewPos.x = Mathf.Clamp(viewPos.x, -screenBounds.x + objectWidth, screenBounds.x - objectWidth);
 		viewPos.y = Mathf.Clamp(viewPos.y, -screenBounds.y + objectHeight, screenBounds.y - objectHeight - clampingVariable);
 		transform.position = viewPos;
+
+		//rightEdgeValue = screenBounds.x - objectWidth;
+		//topEdgeValue = screenBounds.y - objectWidth;
+		//Debug.Log(rightEdgeValue);
+		//Debug.Log(egdeValue()+"from the function");
 	}
+	//public float rightegdeValue() 
+	//{
+	//	return rightEdgeValue;
+	//}
+	//public float topedgeValue()
+	//{
+	//	return topEdgeValue;
+	//}
 }
