@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
-	private bool wasPaused = false;
+	private static bool wasPaused = false;
 	private CharacterController characterController;
 	public float playerSpeed = 1;
 	public GameObject bulletPrefab;
@@ -15,8 +15,10 @@ public class PlayerMove : MonoBehaviour
 	public static int healthValue;
 
 
-	//public HitCounter hitCounter;
-	// Start is called before the first frame update
+	private void Awake()
+	{
+		FindObjectOfType<AudioManager>().Play("Ambian");
+	}
 	void Start()
 	{
 		healthValue = 3;
@@ -30,19 +32,20 @@ public class PlayerMove : MonoBehaviour
 
 	void Update()
 	{
-		if (UIManager.GameIsPaused && !wasPaused) 
+		if (UIManager.instance.GameIsPaused && !wasPaused) 
 		{ 
 			wasPaused = true;
-			Time.timeScale = 1;
-			UIManager.GameIsPaused = false;
+			Time.timeScale = 0;
+			UIManager.instance.GameIsPaused = false;
 		}
 
-		else if (!UIManager.GameIsPaused && wasPaused)
+		else if (!UIManager.instance.GameIsPaused && wasPaused)
 		{// Code here will run once when the game is resumed
 			Debug.Log("Game resumed");
+			Time.timeScale = 1;
 			wasPaused = false;
 		}
-		if (!UIManager.GameIsPaused)
+		if (!UIManager.instance.GameIsPaused)
 		{
 			healthUpdate();
 			shoot();
@@ -52,7 +55,7 @@ public class PlayerMove : MonoBehaviour
 			Vector3 direction = new Vector3(horizontal, vertical, 0).normalized;
 			characterController.Move(direction * playerSpeed * Time.deltaTime);
 		}
-		
+
 	}
 
 	private void healthUpdate()
@@ -84,17 +87,11 @@ public class PlayerMove : MonoBehaviour
 				life3.gameObject.SetActive(false);
 				
 				//pauseGameTime();
-				UIManager.GameIsPaused = true;
+				UIManager.instance.GameIsPaused = true;
 				UIManager.instance.PauseGameOver();
 				break;
 		}
 
-	}
-	void pauseGameTime()
-	{
-		gameOver.gameObject.SetActive(true);
-		restartButton.gameObject.SetActive(true);
-		Time.timeScale = 0f;
 	}
 	private void shoot()
 	{
@@ -104,9 +101,5 @@ public class PlayerMove : MonoBehaviour
 			Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 			FindObjectOfType<AudioManager>().Play("Laser3");
 		}
-	}
-	public void ResetTimeScale()
-	{
-		Time.timeScale = 1f;
 	}
 }

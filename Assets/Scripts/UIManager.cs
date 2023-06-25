@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-	public static bool GameIsPaused =false;
+	public  bool GameIsPaused =false;
 	public GameObject PauseMenuUI;
 	public GameObject GameOverUI;
 	public TMP_Text scoreText;
@@ -38,13 +38,13 @@ public class UIManager : MonoBehaviour
 	{
 		PauseMenuUI.SetActive(false);
 		Time.timeScale = 1;
-		GameIsPaused = false;
+		GameIsPaused = true;
 	}
 	public void Pause() 
 	{
 		PauseMenuUI.SetActive(true);
 		Time.timeScale = 0;
-		GameIsPaused = true;
+		GameIsPaused = false;
 	}
 	public void PauseGameOver()
 	{
@@ -60,11 +60,11 @@ public class UIManager : MonoBehaviour
 		//GameIsPaused = false;
 	}
 
-	public void LoadMenu() 
-	{
-		Debug.Log("Loading Menu....");
-		SceneManager.LoadScene("MenuScene");
-	}
+	//public void LoadMenu() 
+	//{
+	//	Debug.Log("Loading Menu....");
+	//	SceneManager.LoadScene("MenuScene");
+	//}
 	public void QuitGame()
 	{
 		Debug.Log("Quitting");
@@ -73,28 +73,14 @@ public class UIManager : MonoBehaviour
 
 	private void Start()
 	{
-		scoreText.text = "Score : " + score.ToString();
+		scoreText.text = "Score : 0" + score.ToString();
 		
 	}
-
-
 	public void UpdateScoreText( int hitCount)
 	{
 		score += hitCount;
 		scoreText.text = "Score : " +score.ToString();
 	}
-	//public void Onclick()
-	//{
-	//	//0print("Button clicked");
-	//	string currentScene = SceneManager.GetActiveScene().name;
-	//	//Debug.Log(currentScene);
-	//	SceneManager.LoadScene(currentScene);
-	//	if (playerMoveScript == null)
-	//	{
-	//		GameObject player = GameObject.FindGameObjectWithTag("Player");
-	//		playerMoveScript = player.GetComponent<PlayerMove>();
-	//	}
-	//	playerMoveScript.ResetTimeScale();
-	//}
+
 	
 }

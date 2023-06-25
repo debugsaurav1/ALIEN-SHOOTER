@@ -3,11 +3,14 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Astroid_move
     - Astroids
+    - AudioManager
     - BackgroundScroller
     - Boundry
     - Bullet
+    - DestroyAsteriod
     - Destroyer
     - Health
+    - MainMenu
     - MovePowerupPoint
     - MoveSpawnPoint
     - PlayerMove
@@ -16,6 +19,7 @@ ScriptsOnlyBuild:
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
+    - TMPro.TMP_ColorGradient
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
     - TMPro.TMP_StyleSheet
@@ -31,7 +35,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
   serializedClasses:
+    Assembly-CSharp:
+    - Sound
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
@@ -45,7 +52,9 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -57,10 +66,29 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
-  methodsToPreserve: []
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: MainMenu
+    methodName: PlayGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: Restart
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: Resume
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/GameScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -79,13 +107,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -98,8 +126,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2248}
     - Class: 114
-      Script: {instanceID: 2278}
-    - Class: 114
       Script: {instanceID: 2540}
     - Class: 114
       Script: {instanceID: 2722}
@@ -108,36 +134,42 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 3050}
+      Script: {instanceID: 3052}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3252}
     - Class: 114
-      Script: {instanceID: 3734}
+      Script: {instanceID: 3618}
     - Class: 114
-      Script: {instanceID: 4310}
+      Script: {instanceID: 3738}
     - Class: 114
-      Script: {instanceID: 5332}
+      Script: {instanceID: 4206}
     - Class: 114
-      Script: {instanceID: 5432}
+      Script: {instanceID: 5336}
     - Class: 114
-      Script: {instanceID: 5944}
+      Script: {instanceID: 5436}
     - Class: 114
-      Script: {instanceID: 6102}
+      Script: {instanceID: 5764}
     - Class: 114
-      Script: {instanceID: 6432}
+      Script: {instanceID: 5950}
     - Class: 114
-      Script: {instanceID: 6628}
+      Script: {instanceID: 6108}
     - Class: 114
-      Script: {instanceID: 6694}
+      Script: {instanceID: 6438}
     - Class: 114
-      Script: {instanceID: 6958}
+      Script: {instanceID: 6634}
     - Class: 114
-      Script: {instanceID: 7410}
+      Script: {instanceID: 6700}
     - Class: 114
-      Script: {instanceID: 7740}
+      Script: {instanceID: 6964}
     - Class: 114
-      Script: {instanceID: 7980}
+      Script: {instanceID: 7416}
+    - Class: 114
+      Script: {instanceID: 7746}
+    - Class: 114
+      Script: {instanceID: 7986}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
@@ -154,6 +186,71 @@ ScriptsOnlyBuild:
     - Class: 199
       Script: {instanceID: 0}
     - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    Assets/Scenes/MenuScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1614}
+    - Class: 114
+      Script: {instanceID: 1808}
+    - Class: 114
+      Script: {instanceID: 2278}
+    - Class: 114
+      Script: {instanceID: 2722}
+    - Class: 114
+      Script: {instanceID: 2940}
+    - Class: 114
+      Script: {instanceID: 3252}
+    - Class: 114
+      Script: {instanceID: 4206}
+    - Class: 114
+      Script: {instanceID: 4314}
+    - Class: 114
+      Script: {instanceID: 5244}
+    - Class: 114
+      Script: {instanceID: 5336}
+    - Class: 114
+      Script: {instanceID: 5950}
+    - Class: 114
+      Script: {instanceID: 6108}
+    - Class: 114
+      Script: {instanceID: 6438}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -200,6 +297,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: Grain
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainMenu
   - hash:
       serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
@@ -280,7 +383,7 @@ ScriptsOnlyBuild:
     className: PostProcessLayer
   - hash:
       serializedVersion: 2
-      Hash: b7e0b7ea450fff7806bd0de20ea5714b
+      Hash: e6f88fbfa9ae249de2e2d78efa6deb35
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMove
@@ -358,7 +461,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: c472877fbb18495cb5ec3d598ac035cb
+      Hash: 824957b444a4178481832d0143fc90fc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -494,6 +597,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DestroyAsteriod
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -820,6 +929,12 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
+      Hash: 7d71c6ac3b1db75f3799f45080e12660
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioManager
+  - hash:
+      serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
     assemblyName: Unity.VisualScripting.State.dll
     namespaceName: Unity.VisualScripting
@@ -910,7 +1025,7 @@ ScriptsOnlyBuild:
     className: AdjustTimeScale
   - hash:
       serializedVersion: 2
-      Hash: d77ee37776a4223a488672c03e16ed2f
+      Hash: 39e19fc50389feefc3bc3dbb2caba32b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MovePowerupPoint
@@ -1156,5 +1271,6 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 20
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Github-repo/My project/ALIEN-SHOOTER/game/web
+  - Assets/Scenes/MenuScene.unity
+  - Assets/Scenes/GameScene.unity
+  playerPath: D:/Github-repo/My project/ALIEN-SHOOTER/game

@@ -61,6 +61,7 @@
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\ProximityActivate.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Sound.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Runtime\RampAsset.cs" />
     <Compile Include="Assets\Scripts\DestroyAsteriod.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\SimpleCharacterMotor.cs" />
     <Compile Include="Assets\Scripts\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\UnityTechnologies\ParticlePack\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\UnityTechnologies\ParticlePack\Shared\Scripts\AdjustTimeScale.cs" />
@@ -77,8 +79,6 @@
     <Compile Include="Assets\Scripts\Astroids.cs" />
     <Compile Include="Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
-    <Compile Include="Assets\Scripts\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Sound.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UnityTechnologies\ParticlePack\TextMesh Pro\Shaders\TMPro.cginc" />
