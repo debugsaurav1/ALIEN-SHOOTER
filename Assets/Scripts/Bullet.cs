@@ -40,6 +40,8 @@ public class Bullet : MonoBehaviour
 			Destroy(collision.gameObject); // destroy the asteroid
 			GetHitCount();
 			Instantiate(explosion, transform.position, Quaternion.identity);
+			//Explosion
+			FindObjectOfType<AudioManager>().Play("Explosion");
 		}
 	}
 
