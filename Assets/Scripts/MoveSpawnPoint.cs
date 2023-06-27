@@ -19,24 +19,26 @@ public class MoveSpawnPoint : MonoBehaviour
 			boundary = Camera.main.GetComponent<Boundry>();
 		}
 		count = 0;
+        setToRightEdge();
+		setToTopEdge();
 		//Vector3 newPosition = transform.position;
 		//newPosition.x = boundary.rightEdgeValue;
-  //     // newPosition.y = boundary.topEdgeValue;
+		//     // newPosition.y = boundary.topEdgeValue;
 		//transform.position = newPosition;
 	}
 
     // Update is called once per frame
     void Update()
     {
-		
+		Vector3 newPosition = setToTopEdge();
 
 		transform.Translate(0, direction * speed, 0);
-
-        if (transform.position.y <=-4.0f)
+		
+        if (transform.position.y <=-newPosition.y)
         {
             direction = 1;
         }
-        else if (transform.position.y >= 4.0f)
+        else if (transform.position.y >= newPosition.y)
         {
             direction = -1;
         }
@@ -62,16 +64,30 @@ public class MoveSpawnPoint : MonoBehaviour
        count = astroidCount.Length;  
        return count;
     }
-	//void setToEdge()
-	//{
-	//	if (!spawnPoint)
-	//	{
-	//		Debug.Log("Spawn point not set");
-	//		return;
-	//	}
- //       Debug.Log(boundary.topedgeValue());
-	//	Vector3 newPosition = spawnPoint.position;
-	//	newPosition.x = boundary.topedgeValue();
-	//	spawnPoint.position = newPosition;
-	//}
+	void setToRightEdge()
+	{
+	    if (!spawnPoint)
+		    {
+			    Debug.Log("Spawn point not set");
+			    return;
+		    }
+        Debug.Log(boundary.GetScreenRightEdge());
+		Vector3 newPosition = spawnPoint.position;
+	    newPosition.x = boundary.GetScreenRightEdge();
+		spawnPoint.position = newPosition;
+        print(newPosition);
+	}
+	private Vector3 setToTopEdge()
+	{
+		if (!spawnPoint)
+		{
+			Debug.Log("Spawn point not set");
+		}
+		Debug.Log(boundary.GetScreenTopEdge());
+		Vector3 newPosition = spawnPoint.position;
+		newPosition.y = boundary.GetScreenTopEdge();
+		return newPosition;
+		//spawnPoint.position = newPosition;
+		//print(newPosition);
+	}
 }

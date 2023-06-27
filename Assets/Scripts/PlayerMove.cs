@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
+	//private Animation Animation;
 	private static bool wasPaused = false;
 	private CharacterController characterController;
 	public float playerSpeed = 1;
@@ -21,6 +22,7 @@ public class PlayerMove : MonoBehaviour
 	}
 	void Start()
 	{
+		//Animation = gameObject.GetComponent<Animation>();
 		healthValue = 3;
 		life1.gameObject.SetActive(true);
 		life2.gameObject.SetActive(true);
@@ -75,6 +77,7 @@ public class PlayerMove : MonoBehaviour
 				life1.gameObject.SetActive(true);
 				life2.gameObject.SetActive(true);
 				life3.gameObject.SetActive(false);
+				//Animation.Play("playerDeath");
 				break;
 		case 1:
 				life1.gameObject.SetActive(true);
