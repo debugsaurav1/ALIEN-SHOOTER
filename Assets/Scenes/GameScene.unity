@@ -11993,6 +11993,16 @@ MonoBehaviour:
     volume: 0.213
     pitch: 0.21
     source: {fileID: 0}
+  - name: PlayerDamage
+    clip: {fileID: 8300000, guid: 4ee5cbf5995cd4446b310696fbe8f584, type: 3}
+    volume: 0.41
+    pitch: 0.21
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: aca721aa03d62774eb97be806d6ae809, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
   - name: Explosion
     clip: {fileID: 8300000, guid: d35ef321d7e75874782dfc480a8de76d, type: 3}
     volume: 0.505
@@ -13018,8 +13028,6 @@ MonoBehaviour:
   life1: {fileID: 1375889384}
   life2: {fileID: 1541088562}
   life3: {fileID: 2004471644}
-  gameOver: {fileID: 0}
-  restartButton: {fileID: 0}
 --- !u!114 &7773150746798957948
 MonoBehaviour:
   m_ObjectHideFlags: 0

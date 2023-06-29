@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
 	public float playerSpeed = 1;
 	public GameObject bulletPrefab;
 	public Transform firePoint;
-	public GameObject life1, life2, life3, gameOver, restartButton;
+	public GameObject life1, life2, life3;
 	public static int healthValue;
 
 

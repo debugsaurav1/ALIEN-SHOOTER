@@ -7,8 +7,9 @@ public class Astroid_move : MonoBehaviour
     public ParticleSystem explosionEffect;
     public UIManager manager;
     private int playerLives = 3;
-    // Start is called before the first frame update
-    void Start()
+	public float delay = 2f;
+	// Start is called before the first frame update
+	void Start()
     {
         manager = GetComponent<UIManager>();
     }
@@ -24,24 +25,24 @@ public class Astroid_move : MonoBehaviour
         
         if (collidedwith.gameObject.CompareTag ("Player"))
         {
-           // Debug.Log(explosionEffect);
+           
             Instantiate(explosionEffect.gameObject, gameObject.transform.position, gameObject.transform.rotation);
-            //explosionEffect.Play();
-            //print("Hit the player");
+			FindObjectOfType<AudioManager>().Play("PlayerDamage");
+
+
+
 			PlayerMove.healthValue -= 1;
-			//Destroy(collidedwith.gameObject);
+            if (PlayerMove.healthValue <= 0)
+            {
+				FindObjectOfType<AudioManager>().Play("GameOver");
+			}
 			Destroy(gameObject);
             playerLives--;
-           // manager.updateLives(playerLives);
-
             if (playerLives < 1)
             {
+				
 				Destroy(collidedwith.gameObject);
 			}
 		}
-
-        
 	}
-
-    
 }
